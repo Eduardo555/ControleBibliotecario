@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:body>
+    	
+    	<ui:composition template="../template/Template.xhtml">
+            
+            <ui:define name="title">
+                <title>Listagem de Livros</title>
+            </ui:define>
+            
+            <ui:define name="content">
+                
+                <div class="container conteudo-pages">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h:commandButton class="btn btn-success btn-block" id="btnNovoLivro" value="Cadastrar Livro"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>Codigo</td>
+                                    <td>Nome</td>
+                                    <td>Descricao</td>
+                                    <td>Custo</td>
+                                    <td>Opções</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>Nome</td>
+                                    <td>Descricao</td>
+                                    <td>12,30</td>
+                                    <td><button class="btn btn-warning btn-sm">Editar</button><button class="btn btn-danger btn-sm" style="margin-left: 5px;">Excluir</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </ui:define>	
+            
+    	</ui:composition>
+    	
+    </h:body>
+
+</html>

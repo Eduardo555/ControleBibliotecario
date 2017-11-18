@@ -4,29 +4,66 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <ui:insert name="tituloPagina">
-            <title>Facelet Title</title>
+        <ui:insert name="title">
+            <title>Sistema Bibliotecário</title>
         </ui:insert>
         <!-- Metatag para configurar idioma -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <!-- Metatag para bootstrap responsivo -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="StyleSheet" type="text/css" href="#{request.contextPath}/Resources/Bootstrap/css/bootstrap.min.css" media="screen" />
+        <link rel="StyleSheet" type="text/css" href="#{request.contextPath}/Resources/css/estilo.css" media="screen" />
         
     </h:head>
     <h:body>
         <h:form>
-            <ui:insert name="becalhoPagina">
+            <header>
+            <ui:insert name="header">
                 
-                <h1>titulo</h1>
+                 <nav class="navbar navbar-expand-md bg-info navbar-dark">
+                    <!-- Brand -->
+                    <a class="navbar-brand" href="#">Controle Bibliotecário</a>
+
+                    <!-- Toggler/collapsibe Button -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Navbar links -->
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <h:commandLink class="nav-link" value="Home"  action="/home/home.xhtml" />
+                        </li>
+                        <li class="nav-item">
+                          <h:commandLink class="nav-link" value="Livros"  action="/livros/listaLivros.xhtml" />
+                        </li>
+                        <li class="nav-item">
+                          <h:commandLink class="nav-link" value="Emprestimos"  action="/emprestimos/listaEmprestimos.xhtml" />
+                        </li>
+                        <li class="nav-item">
+                          <h:commandLink class="nav-link" value="Sair"  action="/login.xhtml" />
+                        </li>
+                      </ul>
+                    </div>
+                  </nav> 
+                
             </ui:insert>
-            <ui:insert name="corpoPagina">
+                </header>
+            <main>
+            <ui:insert name="content">
                 
-                <h3>teste</h3>
+                <h3>Conteudo</h3>
             </ui:insert>
-            <ui:insert name="rodapePagina">
+                </main>
+            <ui:insert name="footer">
                 
-                <h6>teste</h6>
+                <footer class="footer">
+                    <div class="container text-center">
+                      <span class="text-muted">Desenvolvido em 2017</span>
+                    </div>
+                </footer>
+                
             </ui:insert>
         </h:form>
     </h:body>
