@@ -76,6 +76,7 @@ public class LivroMB {
     
     public void exluirLivros(Livro livro){
         LIvros.LivroControlador.excluir(livro);
+        novoLivro();
         listarLivros();
     }
     

@@ -5,6 +5,7 @@
  */
 package Usuarios;
 
+import Clientes.Cliente;
 import LIvros.Livro;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -37,6 +38,17 @@ public class Usuario implements Serializable{
     @OneToMany(fetch = FetchType.LAZY,mappedBy ="usuario",orphanRemoval = true,cascade = CascadeType.ALL)
     private List<Livro> livros = new ArrayList<Livro>();
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy ="usuario",orphanRemoval = true,cascade = CascadeType.ALL)
+    private List<Cliente> clientes = new ArrayList<Cliente>();
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+    
     public List<Livro> getLivros() {
         return livros;
     }

@@ -26,19 +26,19 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Nome</label>
-                                <h:inputText class="form-control" id="txtNome"  />
+                                <h:inputText class="form-control" id="txtNome"  value="#{clienteMB.cliente.nome}"/>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Data de Nascimento</label>
-                                <h:inputText class="form-control" id="txtData" />
+                                <h:inputText class="form-control" id="txtData" value="#{clienteMB.cliente.data_nascimento}"/>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Sexo</label>
-                                <h:selectOneMenu class="form-control" id="cbxEditora">
+                                <h:selectOneMenu class="form-control" id="cbxEditora" value="#{clienteMB.cliente.sexo}">
                                     <f:selectItem itemValue="Masculino" ></f:selectItem>
                                     <f:selectItem itemValue="Feminino" ></f:selectItem>
                                 </h:selectOneMenu>
@@ -47,19 +47,19 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Cpf</label>
-                                <h:inputText class="form-control" id="txtCpf" />
+                                <h:inputText class="form-control" id="txtCpf" value="#{clienteMB.cliente.cpf}"/>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Rg</label>
-                                <h:inputText class="form-control" id="txtRg" />
+                                <h:inputText class="form-control" id="txtRg" value="#{clienteMB.cliente.rg}"/>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Estado Civil</label>
-                                <h:selectOneMenu class="form-control" id="cbxEstadoCivil">
+                                <h:selectOneMenu class="form-control" id="cbxEstadoCivil" value="#{clienteMB.cliente.estado_civil}">
                                     <f:selectItem itemValue="Solteiro" ></f:selectItem>
                                     <f:selectItem itemValue="Casado" ></f:selectItem>
                                     <f:selectItem itemValue="Separado" ></f:selectItem>
@@ -69,17 +69,17 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label>Observações</label>
-                                <h:inputTextarea class="form-control" id="txtObs" rows="4" />
+                                <h:inputTextarea class="form-control" id="txtObs" rows="4" value="#{clienteMB.cliente.observacoes}"/>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <h:commandButton class="btn btn-info" id="btnVoltar" value="Voltar" action="/livros/listaLivros.xhtml" />
+                            <h:commandButton class="btn btn-info" id="btnVoltar" value="Voltar" action="/clientes/listaClientes.xhtml" />
                         </div>
                         <div class="col-sm-6 pull-right">
-                            <h:commandButton class="btn btn-danger pull-right" id="btnExcluir" value="Excluir" style="margin-left:5px;" /> 
-                           <h:commandButton class="btn btn-success pull-right" id="btnSalvar" value="Salvar" />
+                            <h:commandButton class="btn btn-danger pull-right" id="btnExcluir" value="Excluir" style="margin-left:5px;" action="#{clienteMB.excluirCliente(clienteMB.cliente)}"/> 
+                            <h:commandButton class="btn btn-success pull-right" id="btnSalvar" value="Salvar" action="#{clienteMB.salvarCliente()}"/>
                         </div>
                     </div>
                 </div>
