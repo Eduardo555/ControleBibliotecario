@@ -5,11 +5,18 @@
  */
 package Usuarios;
 
+import LIvros.Livro;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -26,7 +33,18 @@ public class Usuario implements Serializable{
     String nome;
     String email;
     String senha;
+    
+    @OneToMany(fetch = FetchType.LAZY,mappedBy ="usuario",orphanRemoval = true,cascade = CascadeType.ALL)
+    private List<Livro> livros = new ArrayList<Livro>();
 
+    public List<Livro> getLivros() {
+        return livros;
+    }
+
+    public void setLivros(List<Livro> livros) {
+        this.livros = livros;
+    }
+    
     public Integer getCod_usuario() {
         return cod_usuario;
     }
@@ -58,4 +76,10 @@ public class Usuario implements Serializable{
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+    public void addLivro(Livro livro) {
+        getLivros().add(livro);
+        livro.setUsuario(this);
+    }
+    
 }

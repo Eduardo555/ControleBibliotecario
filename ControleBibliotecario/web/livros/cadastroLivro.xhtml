@@ -26,13 +26,13 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Nome</label>
-                                <h:inputText class="form-control" id="txtNomeLivro"  />
+                                <h:inputText class="form-control" id="txtNomeLivro" value="#{livroMB.livro.nome}"  />
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Autor</label>
-                                <h:selectOneMenu class="form-control" id="cbxAutor">
+                                <h:selectOneMenu class="form-control" id="cbxAutor" value="#{livroMB.livro.autor}">
                                     <f:selectItem itemValue="Autor 1" ></f:selectItem>
                                     <f:selectItem itemValue="Autor 2" ></f:selectItem>
                                 </h:selectOneMenu>
@@ -41,7 +41,7 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label>Editora</label>
-                                <h:selectOneMenu class="form-control" id="cbxEditora">
+                                <h:selectOneMenu class="form-control" id="cbxEditora" value="#{livroMB.livro.editora}">
                                     <f:selectItem itemValue="Editora 1" ></f:selectItem>
                                     <f:selectItem itemValue="Editora 2" ></f:selectItem>
                                 </h:selectOneMenu>
@@ -50,19 +50,19 @@
                         <div class="col-sm-5">
                             <div class="form-group">
                                 <label>Assunto</label>
-                                <h:inputText class="form-control" id="txtAssunto" />
+                                <h:inputText class="form-control" id="txtAssunto" value="#{livroMB.livro.assunto}" />
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Data</label>
-                                <h:inputText class="form-control" id="txtData" />
+                                <h:inputText class="form-control" id="txtData" value="#{livroMB.livro.dataCadastro}"/>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label>Observação</label>
-                                <h:inputTextarea class="form-control" id="txtObservacao" rows="4"/>
+                                <h:inputTextarea class="form-control" id="txtObservacao" rows="4" value="#{livroMB.livro.observacao}"/>
                             </div>
                         </div>
                     </div>
@@ -71,8 +71,8 @@
                             <h:commandButton class="btn btn-info" id="btnVoltar" value="Voltar" action="/livros/listaLivros.xhtml" />
                         </div>
                         <div class="col-sm-6 pull-right">
-                            <h:commandButton class="btn btn-danger pull-right" id="btnExcluir" value="Excluir" style="margin-left:5px;" /> 
-                           <h:commandButton class="btn btn-success pull-right" id="btnSalvar" value="Salvar" />
+                            <h:commandButton class="btn btn-danger pull-right" id="btnExcluir" value="Excluir" style="margin-left:5px;" action="#{livroMB.exluirLivros(livroMB.livro)}"/> 
+                            <h:commandButton class="btn btn-success pull-right" id="btnSalvar" value="Salvar" action="#{livroMB.salvarLivro()}" />
                         </div>
                     </div>
                 </div>

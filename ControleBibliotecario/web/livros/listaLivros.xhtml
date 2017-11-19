@@ -3,7 +3,8 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:body>
     	
     	<ui:composition template="../template/Template.xhtml">
@@ -13,7 +14,7 @@
             </ui:define>
             
             <ui:define name="content">
-                
+                <f:event listener="#{livroMB.listarLivros()}" type="preRenderView" /> 
                 <div class="container conteudo-pages">
                     <div class="row">
                         <div class="col-sm-12">
@@ -22,22 +23,29 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <table class="table table-striped">
-                                <tr>
-                                    <td>Codigo</td>
-                                    <td>Nome</td>
-                                    <td>Descricao</td>
-                                    <td>Custo</td>
-                                    <td>Opções</td>
-                                </tr>
-                                <tr>
-                                    <td>12</td>
-                                    <td>Nome</td>
-                                    <td>Descricao</td>
-                                    <td>12,30</td>
-                                    <td><button class="btn btn-warning btn-sm">Editar</button><button class="btn btn-danger btn-sm" style="margin-left: 5px;">Excluir</button></td>
-                                </tr>
-                            </table>
+                            <h:dataTable value="#{livroMB.livros}" var="livro" class="table table-striped">
+                                <h:column>
+                                    <f:facet name="header">Código</f:facet>    
+                                        #{livro.cod_livro}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Nome</f:facet>    
+                                        #{livro.nome}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Autor</f:facet>    
+                                        #{livro.autor}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Opções</f:facet>
+                                    <h:commandLink action="#{livroMB.editarLivros(livro)}" class="btn btn-sm btn-info">
+                                        Editar
+                                    </h:commandLink>
+                                    <h:commandLink action="#{livroMB.exluirLivros(livro)}" class="btn btn-sm btn-danger" style="margin-left: 5px;">
+                                        Excluir
+                                    </h:commandLink>
+                                </h:column>
+                            </h:dataTable>
                         </div>
                     </div>
                 </div>
