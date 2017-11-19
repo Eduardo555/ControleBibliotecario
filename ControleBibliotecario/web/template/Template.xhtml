@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="StyleSheet" type="text/css" href="#{request.contextPath}/Resources/Bootstrap/css/bootstrap.min.css" media="screen" />
         <link rel="StyleSheet" type="text/css" href="#{request.contextPath}/Resources/css/estilo.css" media="screen" />
-        
+        <link rel="StyleSheet" type="text/css" href="#{request.contextPath}/Resources/font-awesome/css/font-awesome.min.css" media="screen" />
     </h:head>
     <h:body>
         <h:form>
@@ -39,7 +39,10 @@
                           <h:commandLink class="nav-link" value="Livros"  action="/livros/listaLivros.xhtml" />
                         </li>
                         <li class="nav-item">
-                          <h:commandLink class="nav-link" value="Emprestimos"  action="/emprestimos/listaEmprestimos.xhtml" />
+                          <h:commandLink class="nav-link" value="Emprestimos"  action="/emprestimos/cadastroEmprestimo.xhtml" />
+                        </li>
+                          <li class="nav-item">
+                          <h:commandLink class="nav-link" value="Clientes"  action="/clientes/listaClientes.xhtml" />
                         </li>
                         <li class="nav-item">
                           <h:commandLink class="nav-link" value="Sair"  action="/login.xhtml" />
@@ -47,7 +50,7 @@
                       </ul>
                     </div>
                   </nav> 
-                
+                    
             </ui:insert>
                 </header>
             <main>

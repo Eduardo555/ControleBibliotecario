@@ -25,14 +25,14 @@
                 
                     <div class="form-group">
                         <label>Email</label>
-                        <input type='text' name='j_username' class="form-control"/>
+                        <h:inputText id="txtEmail" class="form-control" value="#{usuarioMB.usuario.email}" />
                     </div>
                     <div class="form-group">
                         <label>Senha</label>
-                        <input type='password' name='j_password' class="form-control" />
+                        <h:inputText id="txtSenha" class="form-control" value="#{usuarioMB.usuario.senha}" />
                     </div>
                     <div class="text-center">
-                        <h:commandButton type="submit" value="Entrar" class="btn btn-primary btn-block" action="home/home.xhtml"/>
+                        <h:commandButton type="submit" value="Entrar" class="btn btn-primary btn-block" action="#{usuarioMB.realizaLogin()}"/>
                     </div>
                     <div class="text-center">
                         <a class="d-block small mt-3" href="forgot-password.html">Esqueceu a senha?</a>

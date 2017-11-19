@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:body>
+    	
+    	<ui:composition template="../template/Template.xhtml">
+            
+            <ui:define name="title">
+                <title>Novo Emprestimo</title>
+            </ui:define>
+            
+            <ui:define name="content">
+                
+                <div class="container conteudo-pages">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2><i class="fa fa-exchange" aria-hidden="true"></i> Gerar Novo Emprestimo</h2>
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Selecione um livro</label>
+                                <h:selectOneMenu class="form-control" id="cbxLivro">
+                                    <f:selectItem itemValue="Livro 1" />
+                                    <f:selectItem itemValue="Livro 2" />
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Selecione Um Cliente</label>
+                                <h:selectOneMenu class="form-control" id="cbxCliente">
+                                    <f:selectItem itemValue="Fulano" />
+                                    <f:selectItem itemValue="Ciclano" />
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h:commandButton class="btn btn-info" id="btnVoltar" value="Voltar" action="/home/home.xhtml" />
+                        </div>
+                        <div class="col-sm-6 pull-right">
+                           <h:commandButton class="btn btn-success pull-right" id="btnSalvar" value="Salvar" />
+                        </div>
+                        <div class="col-sm-12">
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>Codigo</td>
+                                    <td>Nome</td>
+                                    <td>Descricao</td>
+                                    <td>Custo</td>
+                                    <td>Opções</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>Nome</td>
+                                    <td>Descricao</td>
+                                    <td>12,30</td>
+                                    <td><button class="btn btn-warning btn-sm">Editar</button><button class="btn btn-danger btn-sm" style="margin-left: 5px;">Excluir</button></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </ui:define>	
+            
+    	</ui:composition>
+    	
+    </h:body>
+
+</html>

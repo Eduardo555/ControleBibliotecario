@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:body>
+    	
+    	<ui:composition template="../template/Template.xhtml">
+            
+            <ui:define name="title">
+                <title>Cadastro de Cliente</title>
+            </ui:define>
+            
+            <ui:define name="content">
+                
+                <div class="container conteudo-pages">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2><i class="fa fa-address-book" aria-hidden="true"></i> Cadastro de Cliente</h2>
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <h:inputText class="form-control" id="txtNome"  />
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Data de Nascimento</label>
+                                <h:inputText class="form-control" id="txtData" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Sexo</label>
+                                <h:selectOneMenu class="form-control" id="cbxEditora">
+                                    <f:selectItem itemValue="Masculino" ></f:selectItem>
+                                    <f:selectItem itemValue="Feminino" ></f:selectItem>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Cpf</label>
+                                <h:inputText class="form-control" id="txtCpf" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Rg</label>
+                                <h:inputText class="form-control" id="txtRg" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Estado Civil</label>
+                                <h:selectOneMenu class="form-control" id="cbxEstadoCivil">
+                                    <f:selectItem itemValue="Solteiro" ></f:selectItem>
+                                    <f:selectItem itemValue="Casado" ></f:selectItem>
+                                    <f:selectItem itemValue="Separado" ></f:selectItem>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Observações</label>
+                                <h:inputTextarea class="form-control" id="txtObs" rows="4" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h:commandButton class="btn btn-info" id="btnVoltar" value="Voltar" action="/livros/listaLivros.xhtml" />
+                        </div>
+                        <div class="col-sm-6 pull-right">
+                            <h:commandButton class="btn btn-danger pull-right" id="btnExcluir" value="Excluir" style="margin-left:5px;" /> 
+                           <h:commandButton class="btn btn-success pull-right" id="btnSalvar" value="Salvar" />
+                        </div>
+                    </div>
+                </div>
+                
+            </ui:define>	
+            
+    	</ui:composition>
+    	
+    </h:body>
+
+</html>

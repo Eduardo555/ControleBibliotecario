@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:body>
+    	
+    	<ui:composition template="../template/Template.xhtml">
+            
+            <ui:define name="title">
+                <title>Cadastro de livro</title>
+            </ui:define>
+            
+            <ui:define name="content">
+                
+                <div class="container conteudo-pages">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2><i class="fa fa-book" aria-hidden="true"></i> Cadastro de livros</h2>
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <h:inputText class="form-control" id="txtNomeLivro"  />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Autor</label>
+                                <h:selectOneMenu class="form-control" id="cbxAutor">
+                                    <f:selectItem itemValue="Autor 1" ></f:selectItem>
+                                    <f:selectItem itemValue="Autor 2" ></f:selectItem>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Editora</label>
+                                <h:selectOneMenu class="form-control" id="cbxEditora">
+                                    <f:selectItem itemValue="Editora 1" ></f:selectItem>
+                                    <f:selectItem itemValue="Editora 2" ></f:selectItem>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label>Assunto</label>
+                                <h:inputText class="form-control" id="txtAssunto" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Data</label>
+                                <h:inputText class="form-control" id="txtData" />
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Observação</label>
+                                <h:inputTextarea class="form-control" id="txtObservacao" rows="4"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h:commandButton class="btn btn-info" id="btnVoltar" value="Voltar" action="/livros/listaLivros.xhtml" />
+                        </div>
+                        <div class="col-sm-6 pull-right">
+                            <h:commandButton class="btn btn-danger pull-right" id="btnExcluir" value="Excluir" style="margin-left:5px;" /> 
+                           <h:commandButton class="btn btn-success pull-right" id="btnSalvar" value="Salvar" />
+                        </div>
+                    </div>
+                </div>
+                
+            </ui:define>	
+            
+    	</ui:composition>
+    	
+    </h:body>
+
+</html>
