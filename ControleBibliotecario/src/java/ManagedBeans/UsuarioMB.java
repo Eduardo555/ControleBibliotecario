@@ -6,10 +6,13 @@
 package ManagedBeans;
 
 import Usuarios.Usuario;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import sun.invoke.empty.Empty;
 
 /**
@@ -27,6 +30,7 @@ public class UsuarioMB {
         
     }
     
+    List<Usuario> usuarios = new ArrayList<Usuario>();
     Usuario usuario = new Usuario();
 
     public Usuario getUsuario() {
@@ -47,10 +51,13 @@ public class UsuarioMB {
     }
     
     public String realizaLogin(){
-        usuario = Usuarios.UsuarioControlador.encontraUsuario(usuario.getEmail(), usuario.getSenha());
-        if(!usuario.getCod_usuario().equals(0)){
+        usuarios = Usuarios.UsuarioControlador.encontraUsuario(usuario.getEmail(), usuario.getSenha());
+        if(usuarios.size() > 0){
+            //Realiza Login
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuarios);
             return "/home/home.xhtml";
         }
+        //Usuario nao existe
         return "login.xhtml";
     }
     

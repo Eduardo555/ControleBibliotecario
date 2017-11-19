@@ -6,8 +6,10 @@
 package Usuarios;
 
 import BibliotecarioServico.BibliotecarioServico;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -24,14 +26,14 @@ public class UsuarioControlador {
         t.commit();
     }
     
-     public static Usuario encontraUsuario(String email, String senha){
+     public static List<Usuario> encontraUsuario(String email, String senha){
          
-         EntityManager em = BibliotecarioServico.getEM();
-        TypedQuery<Usuario> query = em.createQuery("select x.cod_usuario from Usuario x where x.email =:email and x.senha=:senha", Usuario.class);
+        EntityManager em = BibliotecarioServico.getEM();
+        TypedQuery<Usuario> query = em.createQuery("select x from Usuario x where x.email =:email and x.senha=:senha", Usuario.class);
         query.setParameter("email", email);
         query.setParameter("senha", senha);
         
-        return query.getSingleResult();
+        return query.getResultList();
                  
      }
      
