@@ -6,10 +6,12 @@
 package Usuarios;
 
 import Clientes.Cliente;
+import Emprestimos.Emprestimo;
 import LIvros.Livro;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -41,6 +43,17 @@ public class Usuario implements Serializable{
     @OneToMany(fetch = FetchType.LAZY,mappedBy ="usuario",orphanRemoval = true,cascade = CascadeType.ALL)
     private List<Cliente> clientes = new ArrayList<Cliente>();
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy ="usuario",orphanRemoval = true,cascade = CascadeType.ALL)
+    private List<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
+
+    public List<Emprestimo> getEmprestimos() {
+        return emprestimos;
+    }
+
+    public void setEmprestimos(List<Emprestimo> emprestimos) {
+        this.emprestimos = emprestimos;
+    }
+    
     public List<Cliente> getClientes() {
         return clientes;
     }
@@ -93,5 +106,9 @@ public class Usuario implements Serializable{
         getLivros().add(livro);
         livro.setUsuario(this);
     }
+
+    
+    
+    
     
 }

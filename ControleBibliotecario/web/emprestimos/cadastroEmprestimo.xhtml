@@ -26,9 +26,9 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Selecione um livro</label>
-                                <h:selectOneMenu class="form-control" id="cbxLivro">
-                                    <f:selectItem itemValue="Livro 1" />
-                                    <f:selectItem itemValue="Livro 2" />
+                                <h:selectOneMenu class="form-control" id="cbxLivro" value="#{livroMB.livro}" converter="#{SimpleEnityConverter}">
+                                    <f:selectItem itemValue="" itemLabel="Selecione uma empresa"/>  
+                                    <f:selectItems value="#{livroMB.livros}" var="item" itemLabel="#{item.nome}" itemValue="#{item}" />
                                 </h:selectOneMenu>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                             <h:commandButton class="btn btn-info" id="btnVoltar" value="Voltar" action="/home/home.xhtml" />
                         </div>
                         <div class="col-sm-6 pull-right">
-                           <h:commandButton class="btn btn-success pull-right" id="btnSalvar" value="Salvar" />
+                            <h:commandButton class="btn btn-success pull-right" id="btnSalvar" value="Salvar" action="#{emprestimoMB.salvarEmprestimo()}"/>
                         </div>
                         <div class="col-sm-12">
                             <hr/>

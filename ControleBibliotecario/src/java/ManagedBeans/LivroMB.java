@@ -73,7 +73,7 @@ public class LivroMB {
     public LivroMB() {
         
     }
-    
+        
     public void exluirLivros(Livro livro){
         LIvros.LivroControlador.excluir(livro);
         novoLivro();

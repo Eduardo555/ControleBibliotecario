@@ -5,7 +5,13 @@
  */
 package Clientes;
 
+import Emprestimos.Emprestimo;
 import Usuarios.Usuario;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +19,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -21,7 +28,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "CLIENTES")
-public class Cliente {
+public class Cliente implements Serializable{
     @Id
     @GeneratedValue
     @Column(name = "cod_cliente")
@@ -38,6 +45,17 @@ public class Cliente {
     @JoinColumn(name = "cod_usuario")
     private Usuario usuario;
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy ="cliente",orphanRemoval = true,cascade = CascadeType.ALL)
+    private List<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
+
+    public List<Emprestimo> getEmprestimos() {
+        return emprestimos;
+    }
+
+    public void setEmprestimos(List<Emprestimo> emprestimos) {
+        this.emprestimos = emprestimos;
+    }
+    
     public Integer getCod_cliente() {
         return cod_cliente;
     }
@@ -108,6 +126,67 @@ public class Cliente {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.cod_cliente);
+        hash = 23 * hash + Objects.hashCode(this.nome);
+        hash = 23 * hash + Objects.hashCode(this.data_nascimento);
+        hash = 23 * hash + Objects.hashCode(this.Sexo);
+        hash = 23 * hash + Objects.hashCode(this.cpf);
+        hash = 23 * hash + Objects.hashCode(this.rg);
+        hash = 23 * hash + Objects.hashCode(this.estado_civil);
+        hash = 23 * hash + Objects.hashCode(this.observacoes);
+        hash = 23 * hash + Objects.hashCode(this.usuario);
+        hash = 23 * hash + Objects.hashCode(this.emprestimos);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.data_nascimento, other.data_nascimento)) {
+            return false;
+        }
+        if (!Objects.equals(this.Sexo, other.Sexo)) {
+            return false;
+        }
+        if (!Objects.equals(this.cpf, other.cpf)) {
+            return false;
+        }
+        if (!Objects.equals(this.rg, other.rg)) {
+            return false;
+        }
+        if (!Objects.equals(this.estado_civil, other.estado_civil)) {
+            return false;
+        }
+        if (!Objects.equals(this.observacoes, other.observacoes)) {
+            return false;
+        }
+        if (!Objects.equals(this.cod_cliente, other.cod_cliente)) {
+            return false;
+        }
+        if (!Objects.equals(this.usuario, other.usuario)) {
+            return false;
+        }
+        if (!Objects.equals(this.emprestimos, other.emprestimos)) {
+            return false;
+        }
+        return true;
     }
     
     
