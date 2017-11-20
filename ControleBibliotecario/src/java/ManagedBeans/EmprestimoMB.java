@@ -51,6 +51,9 @@ public class EmprestimoMB {
         livro.getEmprestimos().add(emprestimo);
         emprestimo.setLivro(this.livro);
         
+        emprestimo.setData_devolucao("00/00/0000");
+        emprestimo.setData_prevista_devolucao("20/12/2017");
+        
         Emprestimos.EmpresitmoControlador.salvar(emprestimo);
         
     }

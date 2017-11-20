@@ -35,9 +35,9 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Selecione Um Cliente</label>
-                                <h:selectOneMenu class="form-control" id="cbxCliente">
-                                    <f:selectItem itemValue="Fulano" />
-                                    <f:selectItem itemValue="Ciclano" />
+                                <h:selectOneMenu class="form-control" id="cbxCliente" value="#{clienteMB.cliente}" converter="#{SimpleEnityConverter}" >
+                                    <f:selectItem itemValue="" itemLabel="Selecione um cliente"/> 
+                                    <f:selectItems value="#{clienteMB.clientes}" var="cliente" itemLabel="#{cliente.nome}" itemValue="#{cliente}" />
                                 </h:selectOneMenu>
                             </div>
                         </div>

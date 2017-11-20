@@ -5,6 +5,7 @@
  */
 package Conversores;
 
+import LIvros.Livro;
 import java.io.Serializable;
 import java.lang.annotation.Annotation;
 import java.util.Map;
@@ -18,7 +19,7 @@ import javax.persistence.Converter;
  *
  * @author eduardo
  */
-@FacesConverter("SimpleEntityConverter")
+@FacesConverter(forClass = Livro.class)
     public class SimpleEntityConverter implements Converter{  
       
         public Object getAsObject(FacesContext ctx, UIComponent component, String value) {  
